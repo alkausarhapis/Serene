@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:serene/global/colors.dart';
-import 'package:serene/pages/breath_page.dart';
+import 'package:serene/pages/breathe_page.dart';
 import 'package:serene/pages/pomodoro_page.dart';
 import 'package:serene/pages/survey_page.dart';
 import 'package:serene/widgets/home_card.dart';
@@ -86,7 +86,8 @@ class HomePage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => const SurveyPage()),
+                          MaterialPageRoute(
+                              builder: (_) => const MoodSurveyPage()),
                         );
                       },
                     ),
