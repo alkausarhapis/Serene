@@ -51,6 +51,7 @@ class _MoodSurveyPageState extends State<MoodSurveyPage> {
       backgroundColor: AppColors.orange,
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        scrolledUnderElevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.close, size: 30),
@@ -58,97 +59,107 @@ class _MoodSurveyPageState extends State<MoodSurveyPage> {
         foregroundColor: AppColors.primary,
         backgroundColor: Colors.transparent,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            children: [
-              ...List.generate(questions.length, (index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      questions[index],
-                      style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.primary),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      description[index],
-                      style: const TextStyle(
-                          fontSize: 14, color: AppColors.primary),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final isMobile = constraints.maxWidth < 600;
+
+          return SingleChildScrollView(
+            child: Padding(
+              padding: isMobile
+                  ? const EdgeInsets.all(24)
+                  : const EdgeInsets.symmetric(horizontal: 120),
+              child: Column(
+                children: [
+                  ...List.generate(questions.length, (index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        MoodCard(
-                          label: "Bad",
-                          emoji: "😞",
-                          scoreValue: 1,
-                          selected: answers[index] == 1,
-                          onTap: () => _setAnswer(index, 1),
+                        Text(
+                          questions[index],
+                          style: TextStyle(
+                              fontSize: isMobile ? 24 : 32,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.primary),
+                          textAlign: TextAlign.center,
                         ),
-                        const SizedBox(width: 8),
-                        MoodCard(
-                          label: "Okay",
-                          emoji: "😐",
-                          scoreValue: 2,
-                          selected: answers[index] == 2,
-                          onTap: () => _setAnswer(index, 2),
+                        Text(
+                          description[index],
+                          style: TextStyle(
+                              fontSize: isMobile ? 14 : 20,
+                              color: AppColors.primary),
+                          textAlign: TextAlign.center,
                         ),
-                        const SizedBox(width: 8),
-                        MoodCard(
-                          label: "Good",
-                          emoji: "🤩",
-                          scoreValue: 3,
-                          selected: answers[index] == 3,
-                          onTap: () => _setAnswer(index, 3),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            MoodCard(
+                              label: "Bad",
+                              emoji: "😞",
+                              scoreValue: 1,
+                              selected: answers[index] == 1,
+                              onTap: () => _setAnswer(index, 1),
+                            ),
+                            const SizedBox(width: 8),
+                            MoodCard(
+                              label: "Okay",
+                              emoji: "😐",
+                              scoreValue: 2,
+                              selected: answers[index] == 2,
+                              onTap: () => _setAnswer(index, 2),
+                            ),
+                            const SizedBox(width: 8),
+                            MoodCard(
+                              label: "Good",
+                              emoji: "🤩",
+                              scoreValue: 3,
+                              selected: answers[index] == 3,
+                              onTap: () => _setAnswer(index, 3),
+                            ),
+                          ],
                         ),
+                        const SizedBox(height: 24),
                       ],
-                    ),
-                    const SizedBox(height: 24),
-                  ],
-                );
-              }),
-              const SizedBox(height: 24),
-              Center(
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      backgroundColor: AppColors.primary,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                    );
+                  }),
+                  const SizedBox(height: 24),
+                  Center(
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          backgroundColor: AppColors.primary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        onPressed: allAnswered
+                            ? () {
+                                // Navigate to the result page with the total score
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MoodResultPage(
+                                      totalScore: totalScore,
+                                    ),
+                                  ),
+                                );
+                              }
+                            : null,
+                        child: Text("Calulate",
+                            style: TextStyle(
+                              fontSize: isMobile ? 20 : 24,
+                              color: Colors.black,
+                            )),
                       ),
                     ),
-                    onPressed: allAnswered
-                        ? () {
-                            // Navigate to the result page with the total score
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MoodResultPage(
-                                  totalScore: totalScore,
-                                ),
-                              ),
-                            );
-                          }
-                        : null,
-                    child: const Text("Calulate",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                        )),
                   ),
-                ),
+                  const SizedBox(height: 24),
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

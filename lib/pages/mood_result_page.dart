@@ -17,6 +17,9 @@ class MoodResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Store the screen width to adjust size based on device
+    double screenWidth = MediaQuery.of(context).size.width;
+
     final themeColor = totalScore <= 4
         ? AppColors.red
         : totalScore <= 6
@@ -80,10 +83,12 @@ class MoodResultPage extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             SizedBox(
-              width: double.infinity,
+              width: screenWidth < 600 ? double.infinity : 500,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  padding: screenWidth < 600
+                      ? const EdgeInsets.symmetric(vertical: 12)
+                      : const EdgeInsets.symmetric(vertical: 20),
                   backgroundColor: AppColors.primary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),

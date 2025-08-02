@@ -19,6 +19,9 @@ class MoodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Store the screen width to adjust size based on device
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Expanded(
       child: InkWell(
         onTap: onTap,
@@ -42,9 +45,10 @@ class MoodCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 label,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.primary,
                   fontWeight: FontWeight.bold,
+                  fontSize: screenWidth < 700 ? 16 : 20,
                 ),
               ),
             ],
