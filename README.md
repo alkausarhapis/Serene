@@ -36,11 +36,21 @@ flutter run
 
 or download the APK release [here](https://github.com/yourusername/serene/releases).
 
-## 📱 Demo
+## 📱 Preview
 
 <table>
+<tr>
 <img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/home_mobile.jpg?raw=true" alt="Home" width="50%"/>
-<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/breathe_exercise_mobile.jpg?raw=true" alt="Breathe Exercise" width="50%"/>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/pomodoro_mobile.jpg?raw=true" alt="Pomodoro" width="50%"/>
+</tr>
+<tr>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/breathe_exercise_mobile.jpg?raw=true" alt="Home" width="50%"/>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/breathe_exercise_mobile_2.jpg?raw=true" alt="Breathe Exercise" width="50%"/>
+</tr>
+<tr>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/mood_survey_mobile.jpg?raw=true" alt="Mood Survey" width="50%"/>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/mood_result_mobile.jpg?raw=true" alt="Mood Result" width="50%"/>
+</tr>
 </table>
 
 ## 🛠️ Built With
