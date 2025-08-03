@@ -18,8 +18,7 @@ Serene is a simple Flutter app designed to help you stay present, focused, and m
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/yourusername/serene.git
-cd serene
+git clone https://github.com/alkausarhapis/Serene.git
 ```
 
 ### 2. Install dependencies
@@ -34,22 +33,38 @@ flutter pub get
 flutter run
 ```
 
-or download the APK release [here](https://github.com/yourusername/serene/releases).
+or download the APK release [here](https://drive.google.com/file/d/14XKHR6vss4Z-pj5iqZmZ-QZE_Lj5IkI6/view?usp=sharing).
 
 ## 📱 Preview
 
 <table>
 <tr>
-<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/home_mobile.jpg?raw=true" alt="Home" width="50%"/>
-<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/pomodoro_mobile.jpg?raw=true" alt="Pomodoro" width="50%"/>
+<td>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/home_mobile.jpg?raw=true" alt="Home"/>
+</td>
+<td>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/pomodoro_mobile.jpg?raw=true" alt="Pomodoro"/>
+</td>
 </tr>
+
 <tr>
-<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/breathe_exercise_mobile.jpg?raw=true" alt="Home" width="50%"/>
-<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/breathe_exercise_mobile_2.jpg?raw=true" alt="Breathe Exercise" width="50%"/>
+<td> 
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/breathe_exercise_mobile.jpg?raw=true" alt="Home"/>
+</td>
+
+<td>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/breathe_exercise_mobile_2.jpg?raw=true" alt="Breathe Exercise"/>
+</td>
 </tr>
+
 <tr>
-<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/mood_survey_mobile.jpg?raw=true" alt="Mood Survey" width="50%"/>
-<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/mood_result_mobile.jpg?raw=true" alt="Mood Result" width="50%"/>
+<td>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/mood_survey_mobile.jpg?raw=true" alt="Mood Survey"/>
+</td>
+
+<td>
+<img src="https://github.com/alkausarhapis/Serene/blob/master/screenshots/mood_result_mobile.jpg?raw=true" alt="Mood Result"/>
+</td>
 </tr>
 </table>
 
