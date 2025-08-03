@@ -90,40 +90,40 @@ class _BreatheExerciseState extends State<BreatheExercise> {
                   ),
                 ),
                 Center(
-                  child: SingleChildScrollView(
-                    child: started
-                        ? Stack(
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    currentPhase.title,
-                                    style: TextStyle(
-                                      color: AppColors.primary,
-                                      fontSize: isMobile ? 50 : 70,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                  child: started
+                      ? Stack(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  currentPhase.title,
+                                  style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: isMobile ? 50 : 70,
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                ],
-                              ),
-                              Positioned(
-                                left: 0,
-                                right: 0,
-                                bottom: 20,
-                                child: Center(
-                                  child: Text(
-                                    "${remainingSeconds}s",
-                                    style: const TextStyle(
-                                      color: AppColors.primary,
-                                      fontSize: 40,
-                                    ),
+                                ),
+                              ],
+                            ),
+                            Positioned(
+                              left: 0,
+                              right: 0,
+                              bottom: 20,
+                              child: Center(
+                                child: Text(
+                                  "${remainingSeconds}s",
+                                  style: const TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 40,
                                   ),
                                 ),
                               ),
-                            ],
-                          )
-                        : Column(
+                            ),
+                          ],
+                        )
+                      : SingleChildScrollView(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Icon(Icons.spa_outlined,
@@ -190,7 +190,7 @@ class _BreatheExerciseState extends State<BreatheExercise> {
                               const SizedBox(height: 24),
                             ],
                           ),
-                  ),
+                        ),
                 ),
               ],
             ),

@@ -90,6 +90,7 @@ class _PomodoroPageState extends State<PomodoroPage> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
@@ -100,6 +101,7 @@ class _PomodoroPageState extends State<PomodoroPage> {
       ),
       body: Center(
         child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
