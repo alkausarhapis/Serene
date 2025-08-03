@@ -90,103 +90,107 @@ class _BreatheExerciseState extends State<BreatheExercise> {
                   ),
                 ),
                 Center(
-                  child: started
-                      ? Stack(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  currentPhase.title,
-                                  style: TextStyle(
-                                    color: AppColors.primary,
-                                    fontSize: isMobile ? 50 : 70,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Positioned(
-                              left: 0,
-                              right: 0,
-                              bottom: 20,
-                              child: Center(
-                                child: Text(
-                                  "${remainingSeconds}s",
-                                  style: const TextStyle(
-                                    color: AppColors.primary,
-                                    fontSize: 40,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.spa_outlined,
-                                size: 150, color: AppColors.primary),
-                            Padding(
-                              padding: isMobile
-                                  ? const EdgeInsets.all(24)
-                                  : const EdgeInsets.symmetric(
-                                      horizontal: 150, vertical: 24),
-                              child: Column(
+                  child: SingleChildScrollView(
+                    child: started
+                        ? Stack(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Breathe in peace, breathe out stress",
-                                    textAlign: TextAlign.center,
+                                    currentPhase.title,
                                     style: TextStyle(
-                                      fontSize: isMobile ? 23 : 32,
+                                      color: AppColors.primary,
+                                      fontSize: isMobile ? 50 : 70,
                                       fontWeight: FontWeight.w500,
-                                      color: AppColors.primary,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    "Let's begin a simple 4-7-8 breathing technique to slow down your thoughts and guide you into a calm, focused state.",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: isMobile ? 16 : 24,
-                                      color: AppColors.primary,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            Padding(
-                              padding: isMobile
-                                  ? const EdgeInsets.all(24)
-                                  : const EdgeInsets.symmetric(horizontal: 150),
-                              child: SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  onPressed: startExercise,
-                                  style: ElevatedButton.styleFrom(
-                                    padding: isMobile
-                                        ? const EdgeInsets.symmetric(
-                                            vertical: 12)
-                                        : const EdgeInsets.symmetric(
-                                            vertical: 20),
-                                    backgroundColor: AppColors.primary,
-                                    foregroundColor:
-                                        AppColors.blue, // primary blue
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
+                              Positioned(
+                                left: 0,
+                                right: 0,
+                                bottom: 20,
+                                child: Center(
+                                  child: Text(
+                                    "${remainingSeconds}s",
+                                    style: const TextStyle(
+                                      color: AppColors.primary,
+                                      fontSize: 40,
                                     ),
-                                  ),
-                                  child: const Text(
-                                    "Start",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
                                   ),
                                 ),
                               ),
-                            )
-                          ],
-                        ),
+                            ],
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.spa_outlined,
+                                  size: 150, color: AppColors.primary),
+                              Padding(
+                                padding: isMobile
+                                    ? const EdgeInsets.all(24)
+                                    : const EdgeInsets.symmetric(
+                                        horizontal: 150, vertical: 24),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "Breathe in peace, breathe out stress",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: isMobile ? 23 : 32,
+                                        fontWeight: FontWeight.w500,
+                                        color: AppColors.primary,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      "Let's begin a simple 4-7-8 breathing technique to slow down your thoughts and guide you into a calm, focused state.",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: isMobile ? 16 : 24,
+                                        color: AppColors.primary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: isMobile
+                                    ? const EdgeInsets.all(24)
+                                    : const EdgeInsets.symmetric(
+                                        horizontal: 150),
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    onPressed: startExercise,
+                                    style: ElevatedButton.styleFrom(
+                                      padding: isMobile
+                                          ? const EdgeInsets.symmetric(
+                                              vertical: 12)
+                                          : const EdgeInsets.symmetric(
+                                              vertical: 20),
+                                      backgroundColor: AppColors.primary,
+                                      foregroundColor:
+                                          AppColors.blue, // primary blue
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      "Start",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 24),
+                            ],
+                          ),
+                  ),
                 ),
               ],
             ),

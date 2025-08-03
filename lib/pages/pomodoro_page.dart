@@ -99,70 +99,71 @@ class _PomodoroPageState extends State<PomodoroPage> {
         backgroundColor: Colors.transparent,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                SizedBox(
-                  // TODO: sizing based on screen
-                  width: 250,
-                  height: 250,
-                  child: CircularProgressIndicator(
-                    value: 1 - progress,
-                    strokeWidth: 20,
-                    backgroundColor: themeColor,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                        isWorkTime ? AppColors.green : AppColors.primary),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  SizedBox(
+                    width: 250,
+                    height: 250,
+                    child: CircularProgressIndicator(
+                      value: 1 - progress,
+                      strokeWidth: 20,
+                      backgroundColor: themeColor,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                          isWorkTime ? AppColors.green : AppColors.primary),
+                    ),
                   ),
-                ),
-                Text(
-                  formatTime(remainingTime),
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    color: textColor,
+                  Text(
+                    formatTime(remainingTime),
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                      color: textColor,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 48,
-            ),
-            Icon(
-              isWorkTime ? Icons.desktop_mac_outlined : Icons.park_outlined,
-              size: 40,
-              color: textColor,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Text(
-              isWorkTime ? 'Work' : 'Rest',
-              style: TextStyle(fontSize: 20, color: textColor),
-            ),
-            const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: toggleTimer,
-              style: ElevatedButton.styleFrom(
-                shape: const CircleBorder(),
-                padding: const EdgeInsets.all(16),
-                backgroundColor:
-                    isWorkTime ? AppColors.green : AppColors.primary,
+                ],
               ),
-              child: Icon(
-                isRunning ? Icons.pause : Icons.play_arrow,
+              const SizedBox(
+                height: 48,
+              ),
+              Icon(
+                isWorkTime ? Icons.desktop_mac_outlined : Icons.park_outlined,
                 size: 40,
-                color: isWorkTime ? AppColors.primary : AppColors.green,
+                color: textColor,
               ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              isRunning ? "Pause" : "Resume",
-              style: TextStyle(color: textColor, fontSize: 24),
-            )
-          ],
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                isWorkTime ? 'Work' : 'Rest',
+                style: TextStyle(fontSize: 20, color: textColor),
+              ),
+              const SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: toggleTimer,
+                style: ElevatedButton.styleFrom(
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(16),
+                  backgroundColor:
+                      isWorkTime ? AppColors.green : AppColors.primary,
+                ),
+                child: Icon(
+                  isRunning ? Icons.pause : Icons.play_arrow,
+                  size: 40,
+                  color: isWorkTime ? AppColors.primary : AppColors.green,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                isRunning ? "Pause" : "Resume",
+                style: TextStyle(color: textColor, fontSize: 24),
+              )
+            ],
+          ),
         ),
       ),
     );
