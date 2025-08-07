@@ -136,7 +136,7 @@ class _MoodSurveyPageState extends State<MoodSurveyPage> {
                         onPressed: allAnswered
                             ? () {
                                 // Navigate to the result page with the total score
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => MoodResultPage(

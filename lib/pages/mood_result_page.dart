@@ -95,7 +95,7 @@ class MoodResultPage extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  Navigator.pop(context);
                 },
                 child: Text(
                   "Home",
